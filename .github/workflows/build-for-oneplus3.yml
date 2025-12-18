@@ -1,4 +1,4 @@
-name: build-for-nx508j
+name: build-for-oneplus3
 
 on: workflow_dispatch
 
@@ -23,8 +23,8 @@ jobs:
           
       - name: Authenticating "repo" with GitHub Account
         run: |
-          git config --global user.email "2402776722@qq.com"
-          git config --global user.name "Fixa-six"
+          git config --global user.email "tangytugboat912@gmail.com"
+          git config --global user.name "mrug_tangy"
           
       - name: Enabling Caching (not sure)
         run: |
@@ -39,13 +39,10 @@ jobs:
           
       - name: Setting Up Build Environment
         run: |
-          mkdir -p device/nubia kernel/nubia vendor/nubia
-          git clone https://github.com/JackLI9/android_device_nubia_nx508j -b staging/lineage-18.1 device/nubia/nx508j
-          git clone https://github.com/JackLI9/android_vendor_nubia_nx508j -b staging/lineage-18.1 vendor/nubia/nx508j
-          git clone https://github.com/JackLI9/android_kernel_nubia_msm8994 -b staging/lineage-18.1 kernel/nubia/msm8994
-          git clone https://github.com/LineageOS/android_hardware_sony_timekeep -b lineage-18.1 hardware/sony/timekeep
+          cd ~/android/lineage
           source build/envsetup.sh
-          lunch lineage_nx508j-userdebug
+          croot
+          breakfast oneplus3
           
       - name: Starting Build Process
         run: |
